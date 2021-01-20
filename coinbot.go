@@ -67,6 +67,11 @@ func main() {
 
 func SendMsg(dolar [3]string, btc [3]string) {
 
+	// Id do bot
+	BotToken := ""
+	// Id do chat
+	ChatId := ""
+
 	CurDolVal, _ := strconv.ParseFloat(dolar[0], 64)
 	HigDolVal, _ := strconv.ParseFloat(dolar[1], 64)
 	LowDolVal, _ := strconv.ParseFloat(dolar[2], 64)
@@ -85,6 +90,7 @@ func SendMsg(dolar [3]string, btc [3]string) {
 	msg += "<b>Dólar (menor valor):</b> R$ " + fmt.Sprintf("%.2f", LowDolVal)
 
 	msg += "%0A"
+	msg += "%0A"
 
 	msg += "<b>Bitcoin (valor atual):</b> R$ " + fmt.Sprintf("%.2f", CurBitVal)
 	msg += "%0A"
@@ -92,7 +98,7 @@ func SendMsg(dolar [3]string, btc [3]string) {
 	msg += "%0A"
 	msg += "<b>Bitcoin (menor valor):</b> R$ " + fmt.Sprintf("%.2f", LowBitVal)
 
-	telrequest, _ := http.Get("https://api.telegram.org/bot1488831808:AAGFIouwdQuVbofFrYSZwh6eDSTTgOESl50/sendMessage?chat_id=853200685&text=" + msg + "&parse_mode=html")
+	telrequest, _ := http.Get("https://api.telegram.org/bot" + BotToken + "/sendMessage?chat_id=" + ChatId + "&text=" + msg + "&parse_mode=html")
 
 	if telrequest.StatusCode == 200 {
 		fmt.Println("Notificação enviada com sucesso!!")
@@ -104,4 +110,3 @@ func SendMsg(dolar [3]string, btc [3]string) {
 	}
 
 }
-
