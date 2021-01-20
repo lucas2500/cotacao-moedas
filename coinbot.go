@@ -69,11 +69,11 @@ func SendMsg(dolar [3]string, btc [3]string) {
 
 	CurDolVal, _ := strconv.ParseFloat(dolar[0], 64)
 	HigDolVal, _ := strconv.ParseFloat(dolar[1], 64)
-	LowDolVal, _ := strconv.ParseFloat(dolar[1], 64)
+	LowDolVal, _ := strconv.ParseFloat(dolar[2], 64)
 
 	CurBitVal, _ := strconv.ParseFloat(btc[0], 64)
 	HigBitVal, _ := strconv.ParseFloat(btc[1], 64)
-	LowBitVal, _ := strconv.ParseFloat(btc[1], 64)
+	LowBitVal, _ := strconv.ParseFloat(btc[2], 64)
 
 	msg := "<b>Cotação atual do Dólar e Bitcoin:</b>"
 	msg += "%0A"
